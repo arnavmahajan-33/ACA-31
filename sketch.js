@@ -15,33 +15,31 @@ function setup() {
   iron.addImage(ironImage)
   iron.scale = 0.4
 
+  ground =createSprite(200,585,900,10)
+  ground.visible=false
 }
 
 function draw() {
-  if(bg.x<100){
-    bg.x=bg.width/4
-  }
-  if(bg.x<-100){
-    bg.x=bg.width/4
-  }
+  
+  
 
   if(keyDown("right")){
     iron.velocityX = +5;
-    bg.velocityX = -6
+    
   }
 
   if(keyDown("left")){
     iron.velocityX = -5;
-    bg.velocityX = +5
+    
   }
  
   if(keyDown("up")){
     iron.velocityY = -10;
-    bg.velocityY = +10
+    
   }
 
     iron.velocityY = iron.velocityY + 0.5
-    bg.velocityY = bg.velocityY - 0.5
+    iron.collide(ground)
     
 drawSprites();
    
